@@ -49,7 +49,9 @@ if (cluster.isPrimary) {
     socket.on("disconnect", () => {
       console.log("Client disconnected");
     });
-    
+    io.on("message", () => {
+      console.log("message received");
+    });
   });
 
   app.use("/user", userRoutes);
