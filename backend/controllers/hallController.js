@@ -92,7 +92,7 @@ export const addHall = async (req, res) => {
   try {
     const response = new hallModel(req.body);
     await response.save();
-    res.status(201).json(response);
+    res.status(201).json({ message: "Hall added succesfully", data: response });
   } catch (error) {
     console.log("error while adding hall", error);
     res.status(500).send({ message: "error while " });
