@@ -6,7 +6,6 @@ export const userAuth = async (req, res) => {
   try {
     let { email, password, phone } = req.body;
 
-    console.log("Received:", { email, password, phone });
 
     // Validation for email and phone
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Basic email format

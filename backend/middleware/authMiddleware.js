@@ -6,6 +6,13 @@ export const authMiddleware = (req, res, next) => {
   if (!token) return res.status(401).json({ message: "Access Denied" });
 
   try {
+    const expiration = jwt.decode(token)?.exp;
+    const currentTime = Math.floor(Date.now() / 1000); // Convert milliseconds to seconds
+
+    if (currentTime >= expiration) {
+      console.log("expired");
+    }
+
     const verified = jwt.verify(token, process.env.secreat_Key);
     req.user = verified;
     next();
