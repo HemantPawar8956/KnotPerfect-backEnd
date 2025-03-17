@@ -40,6 +40,6 @@ jobs:
 
       - name: Run Docker Container
         run: |
-          docker run -d -p 5555:5555 --name knotperfect-backend-container \
+          docker run -d --restart=always -p 8000:8000 --name knotperfect-backend-container \
             -e MONGO_PASSWORD="${{ secrets.MONGO_PASSWORD }}" \
             staypermissionless4/knotperfect-backend:latest
