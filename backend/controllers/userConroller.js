@@ -1,6 +1,6 @@
 import User from "../modals/userModel.js";
 import { imageUploadUtilis } from "../middleware/cloudinary.js";
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 import sendMail from "../middleware/mailVerification.js";
 
 export const getAllUser = async (req, res) => {
