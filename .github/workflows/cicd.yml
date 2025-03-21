@@ -28,15 +28,17 @@ jobs:
     runs-on: self-hosted
 
     steps:
-      - name: Remove old Docker images (except latest)
-        run: docker images -q staypermissionless4/knotperfect-backend | xargs -r docker rmi -f
-
-      - name: Pull image from Docker Hub
-        run: docker pull staypermissionless4/knotperfect-backend:latest
-
-      - name: Delete old container (if exists)
+      - name: Stop and Remove Existing Container (If Running)
         run: |
+          docker stop knotperfect-backend-container || true
           docker rm -f knotperfect-backend-container || true
+
+      - name: Remove Old Docker Images (Except Latest)
+        run: |
+          docker images -q staypermissionless4/knotperfect-backend | tail -n +2 | xargs -r docker rmi -f || true
+
+      - name: Pull Image from Docker Hub
+        run: docker pull staypermissionless4/knotperfect-backend:latest
 
       - name: Run Docker Container
         run: |
