@@ -54,6 +54,9 @@ if (cluster.isPrimary) {
     });
   });
 
+  app.get("/", async (req, res) => {
+    res.send("welcome to the Knotperfect");
+  });
   app.use("/user", userRoutes);
   app.use("/hall", hallRoutes);
   const PORT = process.env.PORT || 8000;
