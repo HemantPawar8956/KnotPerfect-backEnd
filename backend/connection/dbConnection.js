@@ -8,6 +8,7 @@ export const connectDB = async (url) => {
     console.log("Database is connected");
     return connectionEstablished;
   } catch (error) {
+    console.log(error);
     console.log("There is error in database connection");
   }
 };
