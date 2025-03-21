@@ -37,22 +37,22 @@ if (cluster.isPrimary) {
       origin: "*",
     })
   );
-
+  console.log(process.env.mongodb_URL);
   connectDB(process.env.mongodb_URL);
 
-  io.on("connection", (socket) => {
-    console.log("New Connection on server");
-    socket.on("join", (data) => {
-      console.log(data);
-      socket.join(data);
-    });
-    socket.on("disconnect", () => {
-      console.log("Client disconnected");
-    });
-    io.on("message", () => {
-      console.log("message received");
-    });
-  });
+  // io.on("connection", (socket) => {
+  //   console.log("New Connection on server");
+  //   socket.on("join", (data) => {
+  //     console.log(data);
+  //     socket.join(data);
+  //   });
+  //   socket.on("disconnect", () => {
+  //     console.log("Client disconnected");
+  //   });
+  //   io.on("message", () => {
+  //     console.log("message received");
+  //   });
+  // });
 
   app.get("/", async (req, res) => {
     res.send("welcome to the Knotperfect");
