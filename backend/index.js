@@ -8,6 +8,8 @@ import cluster from "cluster";
 import userRoutes from "./routers/userRoutes.js";
 import { connectDB } from "./connection/dbConnection.js";
 import hallRoutes from "./routers/hallRoutes.js";
+import dns from "dns";
+dns.setDefaultResultOrder("ipv4first");
 
 if (cluster.isPrimary) {
   const cpuLength = os.cpus().length;
