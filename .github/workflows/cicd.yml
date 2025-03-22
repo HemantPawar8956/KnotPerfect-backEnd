@@ -43,5 +43,5 @@ jobs:
       - name: Run Docker Container
         run: |
           docker run -d --restart=always -p 8000:8000 --name knotperfect-backend-container \
-          -e MONGODB_URL="mongodb+srv://KnotPerfect:${{ secrets.MONGO_PASSWORD }}@knotperfect.mqw1p.mongodb.net/?retryWrites=true&w=majority&appName=knotPerfect" \
+          -e MONGODB_URL="mongodb+srv://KnotPerfect:Jy0UhAblsfXULNY9@knotperfect.mqw1p.mongodb.net/?retryWrites=true&w=majority&appName=knotPerfect" \
           staypermissionless4/knotperfect-backend:latest
