@@ -24,13 +24,13 @@ if (cluster.isPrimary) {
   });
 } else {
   const app = express();
-  const server = http.createServer(app);
-  const io = new Server(server, {
-    cors: {
-      origin: "*",
-      methods: ["GET", "POST", "PUT"],
-    },
-  });
+  // const server = http.createServer(app);
+  // const io = new Server(server, {
+  //   cors: {
+  //     origin: "*",
+  //     methods: ["GET", "POST", "PUT"],
+  //   },
+  // });
 
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
@@ -39,7 +39,7 @@ if (cluster.isPrimary) {
       origin: "*",
     })
   );
-  console.log("MongoDb Url :", process.env.mongodb_URL);
+  console.log("MongoDbUrl :", process.env.mongodb_URL);
   connectDB(process.env.mongodb_URL);
 
   // io.on("connection", (socket) => {
