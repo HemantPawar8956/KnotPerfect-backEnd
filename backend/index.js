@@ -39,7 +39,7 @@ if (cluster.isPrimary) {
       origin: "*",
     })
   );
-  console.log(process.env.mongodb_URL);
+  console.log("MongoDb Url :", process.env.mongodb_URL);
   connectDB(process.env.mongodb_URL);
 
   // io.on("connection", (socket) => {
